@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 - 2017
+ * Copyright (c) 2015 - 2018
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"),
  * to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
@@ -14,10 +14,11 @@
  *******************************************************************************/
 package jsettlers.logic.map.loading.original.data;
 
-import java.util.stream.Stream;
+import java8.util.J8Arrays;
 
 /**
  * The civilization the player is of
+ * 
  * @author Thomas Zeugner
  * @author codingberlin
  */
@@ -37,6 +38,6 @@ public enum EOriginalMapCivilizations {
 	}
 
 	public static EOriginalMapCivilizations fromMapValue(int mapValue) {
-		return Stream.of(VALUES).filter(nation -> nation.value == mapValue).findAny().orElse(ROMANS);
+		return J8Arrays.stream(VALUES).filter(nation -> nation.value == mapValue).findAny().orElse(ROMANS);
 	}
 }

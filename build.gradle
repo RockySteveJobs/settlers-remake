@@ -2,26 +2,29 @@
 apply plugin: 'java'
 
 ext {
-    streamSupportVersion = '1.5.4'
+    streamSupportVersion = '1.6.0'
 
-    androidAnnotationsVersion = '4.3.0'
-    androidSupportLibraryVersion = '25.3.1'
+    androidAnnotationsVersion = '4.4.0'
+    androidSupportLibraryVersion = '27.1.0'
 
-    androidBuildToolsVersion = '25.0.3'
-    androidCompileSdkVersion = 25
+    androidBuildToolsVersion = '27.0.3'
+    androidCompileSdkVersion = 27
     androidMinSdkVersion = 19
-    androidTargetSdkVersion = 25
+    androidTargetSdkVersion = 27
 }
 
 buildscript {
     repositories {
         jcenter()
         mavenCentral()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
     }
     dependencies {
         classpath 'org.eclipse.jgit:org.eclipse.jgit:3.1.0.201310021548-r'
-        classpath 'com.android.tools.build:gradle:2.2.3'
-        classpath 'me.tatarka:gradle-retrolambda:3.4.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
     }
 }
 
@@ -30,13 +33,15 @@ allprojects {
         mavenCentral()
         jcenter()
         maven { url "https://raw.github.com/laenger/maven-releases/master/releases" }
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
     }
 }
 
 
 subprojects {
-    apply plugin: 'me.tatarka.retrolambda'
-
     plugins.withType(JavaPlugin).whenPluginAdded {
         test {
             testLogging {
